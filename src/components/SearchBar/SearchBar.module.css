@@ -1,0 +1,7 @@
+.SearchBar {
+    display: flex;
+    background: var(--white);
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    width: 20rem;
+}
