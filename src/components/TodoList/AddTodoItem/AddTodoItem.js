@@ -35,8 +35,15 @@ const AddTodoItem = props => {
     }
 
     return (
-        <form className={classes.AddTodoItem} onSubmit={handleSubmit}>
-            <input type="text" name="task" placeholder={'What needs to be done?'} onChange={handleInput} value={task} />
+        <form className={classes.AddTodoItem} onSubmit={handleSubmit} aria-labelledby="Add task to list">
+            <input
+                type="text"
+                name="task"
+                placeholder={'What needs to be done?'}
+                onChange={handleInput}
+                value={task}
+                aria-labelledby="Enter task to add to list"
+            />
         </form>
     )
 }

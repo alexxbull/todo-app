@@ -14,8 +14,14 @@ const SearchBar = props => {
     }
 
     return (
-        <form className={classes.SearchBar}>
-            <input type="text" name="search" placeholder={'Search'} onChange={handleInput} value={query} />
+        <form className={classes.SearchBar} aria-labelledby="Search for a task">
+            <input
+                type="text"
+                name="search"
+                placeholder={'Search'}
+                onChange={handleInput}
+                value={query}
+                aria-labelledby="Enter text to search for task" />
         </form>
     )
 

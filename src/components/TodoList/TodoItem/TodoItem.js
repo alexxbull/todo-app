@@ -42,12 +42,13 @@ const TodoItem = props => {
         <section className={classes.TodoItem}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            aria-labelledby="Task on list"
         >
-            <button className={classes.CheckBtn} onClick={() => props.updateStatus(props.originalIndex || props.index, !props.done)}>
+            <button className={classes.CheckBtn} onClick={() => props.updateStatus(props.originalIndex || props.index, !props.done)} aria-labelledby="Complete indicator">
                 {statusIcon}
             </button>
-            <div className={taskClasses.join(' ')}>{props.content}</div>
-            <button className={deleteBtnClasses.join(' ')} onClick={() => props.delete(props.id)}>
+            <div className={taskClasses.join(' ')} aria-labelledby="Content of task">{props.content}</div>
+            <button className={deleteBtnClasses.join(' ')} onClick={() => props.delete(props.id)} aria-label="Delete task">
                 {deleteIcon}
             </button>
         </section>

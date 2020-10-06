@@ -153,19 +153,19 @@ const TodoList = props => {
                 tasks={tasks}
                 handleSearch={handleSearch}
             />
-            <section className={classes.TodoList}>
+            <section className={classes.TodoList} aria-labelledby="List of tasks">
                 <AddTodoItem saveTasks={saveTasks} />
                 {todoItems}
             </section>
 
-            <section className={classes.StatusBar}>
-                <div className={classes.TaskCount}>{remainingTasks} task left</div>
-                <nav className={classes.StatusBtnGroup}>
-                    <button className={getStatusBtnClasses('all').join(' ')} onClick={handleStatusBtn} name="all">all</button>
-                    <button className={getStatusBtnClasses('active').join(' ')} onClick={handleStatusBtn} name="active">active</button>
-                    <button className={getStatusBtnClasses('completed').join(' ')} onClick={handleStatusBtn} name="completed">completed</button>
+            <section className={classes.StatusBar} aria-labelledby="Status Filter">
+                <div className={classes.TaskCount} aria-labelledby="Uncompleted Task Count" aria-valuemin="0" aria-valuenow={remainingTasks} >{remainingTasks} task left</div>
+                <nav className={classes.StatusBtnGroup} aria-labelledby="Filter by status">
+                    <button className={getStatusBtnClasses('all').join(' ')} onClick={handleStatusBtn} name="all" aria-labelledby="all">all</button>
+                    <button className={getStatusBtnClasses('active').join(' ')} onClick={handleStatusBtn} name="active" aria-labelledby="active">active</button>
+                    <button className={getStatusBtnClasses('completed').join(' ')} onClick={handleStatusBtn} name="completed" aria-labelledby="completed"> completed</button>
                 </nav>
-                <button className={classes.RemoveCompletedBtn} onClick={removeCompletedTasks}>clear completed</button>
+                <button className={classes.RemoveCompletedBtn} onClick={removeCompletedTasks} aria-labelledby="Remove compeleted tasks">clear completed</button>
             </section>
         </>
     )
