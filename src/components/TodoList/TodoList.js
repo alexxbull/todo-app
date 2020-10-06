@@ -8,6 +8,7 @@ import TodoItem from './TodoItem/TodoItem.js'
 import AddTodoItem from './AddTodoItem/AddTodoItem.js'
 
 const TodoList = props => {
+    // load tasks from storage on initial render
     useEffect(() => {
         if (localStorage['tasks']) {
             const jsonData = JSON.parse(localStorage.getItem('tasks'))
@@ -22,24 +23,38 @@ const TodoList = props => {
 
     const [tasks, setTasks] = useState([])
 
-    const saveTasks = () => localStorage.setItem('tasks', JSON.stringify(tasks))
+    // save a new task to tasks in local storage and update state
+    const saveTasks = newTask => {
+        const newTasks = [...tasks, newTask]
+        setTasks(newTasks)
+        localStorage.setItem('tasks', JSON.stringify(newTasks))
+    }
 
-    const todoItems = tasks.map(task => {
-        const date = new Date()
+    const updateStatus = (index, newStatus) => {
+        const updatedTasks = [...tasks]
+        updatedTasks[index].done = newStatus
+
+        setTasks(updatedTasks)
+        localStorage.setItem('tasks', JSON.stringify(updatedTasks))
+    }
+
+    const todoItems = tasks.map((task, index) => {
         return (
             <TodoItem
                 content={task.content}
                 done={task.done}
-                key={date.getTime()}
+                key={task.id}
+                index={index}
+                updateStatus={updateStatus}
             />
         )
     })
 
     return (
-        <div className={classes.TodoList}>
-            <AddTodoItem tasks={tasks} saveTasks={saveTasks} />
+        <section className={classes.TodoList}>
+            <AddTodoItem saveTasks={saveTasks} />
             {todoItems}
-        </div>
+        </section>
     )
 }
 

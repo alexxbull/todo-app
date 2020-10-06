@@ -1,3 +1,27 @@
 .TodoItem {
+    border: 1px solid var(--lightGray);
+    border-bottom: none;
     display: flex;
+    align-items: center;
+    padding: 8px 0 4px 0;
+    font-size: 0.9rem;
+}
+
+.TodoItem:last-child {
+    border-bottom: 1px solid var(--lightGray);
+}
+
+.CheckBtn {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.Task {
+    margin-left: 8px;
+}
+
+.Completed {
+    text-decoration: line-through;
+    color: #c9c7d2;
 }
