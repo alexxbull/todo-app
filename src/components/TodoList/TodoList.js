@@ -113,6 +113,12 @@ const TodoList = props => {
         setQuery(query)
     }
 
+    // remove task from the list with the given id
+    const deleteTask = id => {
+        const remainingTasks = loadTasks().filter(task => task.id !== id)
+        setTasks(remainingTasks)
+        localStorage.setItem('tasks', JSON.stringify(remainingTasks))
+    }
 
     // build a list of TodoItem from tasks
     let remainingTasks = 0
@@ -123,8 +129,10 @@ const TodoList = props => {
         return (
             <TodoItem
                 content={task.content}
+                delete={deleteTask}
                 done={task.done}
                 key={task.id}
+                id={task.id}
                 index={index}
                 originalIndex={task.originalIndex}
                 updateStatus={updateStatus}
