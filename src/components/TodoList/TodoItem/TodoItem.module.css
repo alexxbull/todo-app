@@ -1,14 +1,14 @@
 .TodoItem {
     border: 1px solid var(--lightGray);
-    border-bottom: none;
+    border-top: none;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding: 8px 0 4px 0;
     font-size: 0.9rem;
 }
 
-.TodoItem:last-child {
-    border-bottom: 1px solid var(--lightGray);
+.TodoItem:first-of-type  {
+    border-top: 1px solid var(--lightGray);
 }
 
 .CheckBtn {

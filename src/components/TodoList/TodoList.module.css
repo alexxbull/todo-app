@@ -3,9 +3,56 @@
     flex-direction: column;
     width: 100%;
     padding: 8px;
+    overflow: auto;
 }
 
 .StatusBar {
+    align-self: flex-start;
+    border-top: 1px solid var(--lightGray);
     display: flex;
     font-size: 0.8rem;
+    color: #7d7c81;
+    margin-top: auto;
+    align-items: center;
+    padding-top: 24px;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.TaskCount {
+    font-weight: bold;
+}
+
+.StatusBtnGroup {    
+    margin: 0 auto;
+}
+
+.StatusBtn {
+    background: none;
+    border: 1px solid var(--brightGray);
+    color: #7d7c81;
+    cursor: pointer;
+    padding: 6px 18px;
+    font-size: 0.8rem;
+}
+
+.ActiveBtn {
+    background: var(--brightGray);   
+    color: var(--black);
+    font-weight: bold;
+}
+
+.RemoveCompletedBtn {
+    background: none;
+    border: none;
+    color: #7d7c81;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.RemoveCompletedBtn:hover {
+    border-radius: 8px;
+    background: #ff6347;
+    color: white;
 }

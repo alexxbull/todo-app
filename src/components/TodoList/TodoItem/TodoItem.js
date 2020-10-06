@@ -25,12 +25,12 @@ const TodoItem = props => {
     }
 
     return (
-        <div className={classes.TodoItem}>
-            <button className={classes.CheckBtn} onClick={() => props.updateStatus(props.index, !props.done)}>
+        <section className={classes.TodoItem}>
+            <button className={classes.CheckBtn} onClick={() => props.updateStatus(props.originalIndex || props.index, !props.done)}>
                 {statusIcon}
             </button>
             <div className={taskClasses.join(' ')}>{props.content}</div>
-        </div>
+        </section>
     )
 }
 
