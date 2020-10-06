@@ -6,6 +6,7 @@ import classes from './TodoList.module.css'
 // components
 import TodoItem from './TodoItem/TodoItem.js'
 import AddTodoItem from './AddTodoItem/AddTodoItem.js'
+import SearchBar from '../SearchBar/SearchBar'
 
 // load task data from local storage
 const loadTasks = () => {
@@ -19,7 +20,7 @@ const loadTasks = () => {
 }
 
 // return a filtered list of tasks based status given
-const getFilteredTasks = status => {
+const getFilteredTasks = (status, search) => {
     const storedTasks = loadTasks()
     let filteredTasks = []
 
@@ -46,6 +47,9 @@ const getFilteredTasks = status => {
         default:
             break
     }
+
+    if (search)
+        filteredTasks = filteredTasks.filter(task => task.content.includes(search))
 
     return filteredTasks
 }
@@ -97,9 +101,17 @@ const TodoList = props => {
     }
 
     // filter visible tasks by the currently selected status button
+    const [query, setQuery] = useState('')
     useEffect(() => {
-        setTasks(getFilteredTasks(activeStatusBtn))
-    }, [activeStatusBtn])
+        setTasks(getFilteredTasks(activeStatusBtn, query))
+    }, [activeStatusBtn, query])
+
+
+    // filter tasks by search value
+    const handleSearch = query => {
+        // setTasks(getFilteredTasks(activeStatusBtn, query))
+        setQuery(query)
+    }
 
 
     // build a list of TodoItem from tasks
@@ -129,6 +141,10 @@ const TodoList = props => {
 
     return (
         <>
+            <SearchBar
+                tasks={tasks}
+                handleSearch={handleSearch}
+            />
             <section className={classes.TodoList}>
                 <AddTodoItem saveTasks={saveTasks} />
                 {todoItems}

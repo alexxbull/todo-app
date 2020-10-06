@@ -1,7 +1,20 @@
 .SearchBar {
     display: flex;
-    background: var(--white);
+    background: var(--brightGray);
     border: 1px solid var(--white);
+    height: 2rem;
     border-radius: 5px;
-    width: 20rem;
+    width: 30%;
+    align-self: flex-end;
+}
+
+.SearchBar input {
+    border-radius: 10px;
+    border: none;
+    border: 1px solid var(--brightGray);
+    background: whitesmoke;
+    color: var(--black);
+    padding: 0 8px;
+    font-size: 0.9rem;
+    width: 100%;
 }
