@@ -1,3 +1,13 @@
 .AddTodoItem {
     display: flex;
+    height: 3rem;
+    width: 100%;
+}
+
+.AddTodoItem input {
+    border-radius: 10px;
+    border: 10px solid whitesmoke;
+    background: whitesmoke;
+    padding: 0 8px;
+    width: 100%;
 }
