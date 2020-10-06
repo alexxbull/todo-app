@@ -33,16 +33,10 @@ const TodoItem = props => {
 
     const [deleteBtnClasses, setDeleteBtnClassess] = useState([classes.DeleteBtn])
     // show delete button on hover
-    const handleMouseEnter = () => {
-        console.log('enter')
-        setDeleteBtnClassess([classes.DeleteBtn, classes.Show])
-    }
+    const handleMouseEnter = () => setDeleteBtnClassess([classes.DeleteBtn, classes.Show])
 
     // hide delete button on hover exit
-    const handleMouseLeave = () => {
-        console.log('exit')
-        setDeleteBtnClassess([classes.DeleteBtn])
-    }
+    const handleMouseLeave = () => setDeleteBtnClassess([classes.DeleteBtn])
 
     return (
         <section className={classes.TodoItem}
