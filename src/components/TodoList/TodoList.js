@@ -91,8 +91,11 @@ const TodoList = props => {
         const storedTasks = loadTasks()
         const activeTasks = storedTasks.filter(task => !task.done)
 
-        setTasks(activeTasks)
         localStorage.setItem('tasks', JSON.stringify(activeTasks))
+
+        // re-render the new filtered list
+        const filteredTasks = getFilteredTasks(activeStatusBtn)
+        setTasks(filteredTasks)
     }
 
     // set which status button is active and filter the tasks as appropriate
@@ -111,7 +114,6 @@ const TodoList = props => {
 
     // filter tasks by search value
     const handleSearch = query => {
-        // setTasks(getFilteredTasks(activeStatusBtn, query))
         setQuery(query)
     }
 
