@@ -13,8 +13,10 @@ const loadTasks = () => {
     const jsonData = JSON.parse(localStorage.getItem('tasks'))
     const loadedTasks = []
 
-    for (const task of jsonData)
-        loadedTasks.push(task)
+    if (jsonData) {
+        for (const task of jsonData)
+            loadedTasks.push(task)
+    }
 
     return loadedTasks
 }
